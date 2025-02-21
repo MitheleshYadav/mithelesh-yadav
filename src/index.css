@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  /* --color-background: #010103; */
+  --color-beltbg: #596072;
+  --color-aboutbg: #0f0f11;
+  --color-background: #0d0d0d;
+  --radial-dark-gradient: radial-gradient(circle at top left, #1a1a1a, #0d0d0d);
+  --card-bg: rgba(25, 25, 25, 0.8);
+  --card-blur: blur(10px);
+  --card-border: rgba(138, 43, 226, 0.3);
+  --btn-gradient: linear-gradient(135deg, #a020f0, #6a0dad);
+  --btn-hover-gradient: linear-gradient(135deg, #b03af0, #7b1fb5);
+}
+
+@font-face {
+  font-family: "identity";
+  font-family: "Lato", serif;
+  font-family: "Archivo Black", serif;
+  src: url("/Fonts/IdentifyDemoRegular-OWM3d.woff") format("woff"),
+    url("/Fonts/IdentifyDemoRegular-eZ6Bp.woff") format("woff");
+}
+.bg-radial-dark {
+  background-image: var(--radial-dark-gradient);
+}
+
+.font-identity {
+  font-family: "identity";
+}
+.font-lato {
+  font-family: "lato";
+}
+.font-archivo {
+  font-family: "Archivo Black", serif;
+}
+
+.mask-radial {
+  mask-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 2) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 40%,
+    rgba(0, 0, 0, 0) 90%
+  );
+}
+
+@layer components {
+  .image-belt {
+    @apply h-20 sm:h-28 mx-8 py-4;
+  }
+  .project-work {
+    @apply flex flex-col p-6 bg-aboutbg;
+  }
+  .project-work img {
+    @apply rounded-b-md sm:rounded-2xl h-80 object-cover sm:object-fill mb-3;
+  }
+  .glass-card {
+    background: var(--card-bg);
+    backdrop-filter: var(--card-blur);
+    -webkit-backdrop-filter: var(--card-blur);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Neon purple border glow */
+  .border-glow {
+    box-shadow: 0px 0px 10px var(--card-border);
+    border: 1px solid var(--card-border);
+  }
+
+  /* Soft purple glow on hover */
+  .hover-glow:hover {
+    box-shadow: 0px 0px 20px rgba(138, 43, 226, 0.6);
+    transform: translateY(-2px);
+  }
+  .btn-contact {
+    background: var(--btn-gradient);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(160, 32, 240, 0.5);
+  }
+
+  .btn-contact:hover {
+    background: var(--btn-hover-gradient);
+    box-shadow: 0px 0px 15px rgba(160, 32, 240, 0.8);
+    transform: translateY(-2px);
+  }
+
+  /* Underline for links with hover effect */
+  
+}
+
+.mask-image-radial {
+  -webkit-mask-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.7) 40%,
+    rgba(0, 0, 0, 0) 90%
+  );
+  mask-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.7) 20%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+
+.blend-mode {
+  mix-blend-mode: lighten;
+  /* Optional: adds a blending effect with the background */
+}
