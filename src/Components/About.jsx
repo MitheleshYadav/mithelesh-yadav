@@ -172,7 +172,7 @@ const About = () => {
                 technologies, pushing boundaries, and continuously enhancing my
                 skills to stay ahead in the ever-evolving tech world
               </p>
-              <a href="/static/MITHTELESH_RESUME.pdf" download="mithelesh_resume.pdf">
+              <a href="https://drive.google.com/file/d/1E6DIHT63C6idU0VkNQjhpZb8zq6XxTjG/view?usp=sharing" download="mithelesh_resume.pdf">
                 <button className="relative w-full mt-10 btn-contact py-5 rounded-3xl overflow-hidden cursor-pointer">
                   Resume
                   <span className="absolute inset-0 border-2 border-[#afb0b6] blur-[5px] rounded-3xl"></span>
