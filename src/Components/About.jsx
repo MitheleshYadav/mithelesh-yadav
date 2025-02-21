@@ -3,17 +3,24 @@ import Globe from "react-globe.gl";
 import gsap from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  // const navigate = useNavigate();
+  // const handleNavigate = () => {
+  //   console.log("navigate")
+  //   navigate("/hero", { state: { scrollTo: "contact" } }); // Pass scroll target
+  // };
+
   const cardsref1 = useRef(null);
   const cardsref2 = useRef(null);
   const cardsref3 = useRef(null);
   const cardsref4 = useRef(null);
   const cardsref5 = useRef(null);
   const [hasCopied, setHasCopied] = useState(false);
-  
+
   const handleCopy = () => {
     navigator.clipboard.writeText(" mithelesh942@gmail.com");
     setHasCopied(true);
@@ -22,11 +29,11 @@ const About = () => {
       setHasCopied(false);
     }, 2000);
   };
-  useGSAP(()=>{
-    const animate = (card)=>{
-      gsap.from(card,{
-        opacity: 0,  // Initially invisible
-        y: 100,  // Moves 50px downward
+  useGSAP(() => {
+    const animate = (card) => {
+      gsap.from(card, {
+        opacity: 0, // Initially invisible
+        y: 100, // Moves 50px downward
         ease: "power2.out",
         scrollTrigger: {
           trigger: card, // The card itself triggers the animation
@@ -34,14 +41,14 @@ const About = () => {
           end: "bottom 70%", // Animation completes when 60% of the card is in view
           toggleActions: "play none none reverse", // Play when entering, reverse when leaving
         },
-      })
-    }
-     animate(cardsref1.current);
-     animate(cardsref2.current);
-     animate(cardsref3.current);
-     animate(cardsref4.current);
-     animate(cardsref5.current);
-  })
+      });
+    };
+    animate(cardsref1.current);
+    animate(cardsref2.current);
+    animate(cardsref3.current);
+    animate(cardsref4.current);
+    animate(cardsref5.current);
+  });
   // border-black-300 bg-aboutbg - bento
   return (
     <section
@@ -50,7 +57,10 @@ const About = () => {
     >
       <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full sm:w-3/4">
         <div className="col-span-1 xl:row-span-3">
-          <div ref={cardsref1} className=" w-full h-full border glass-card border-glow hover-glow rounded-lg sm:p-7 p-4 flex flex-col gap-5">
+          <div
+            ref={cardsref1}
+            className=" w-full h-full border glass-card border-glow hover-glow rounded-lg sm:p-7 p-4 flex flex-col gap-5"
+          >
             <img
               src="/images/grid1.png"
               alt="grid-1"
@@ -73,7 +83,10 @@ const About = () => {
         </div>
 
         <div className="col-span-1 xl:row-span-3">
-          <div ref={cardsref2} className="w-full h-full border glass-card border-glow hover-glow rounded-lg sm:p-7 p-4 flex flex-col gap-5">
+          <div
+            ref={cardsref2}
+            className="w-full h-full border glass-card border-glow hover-glow rounded-lg sm:p-7 p-4 flex flex-col gap-5"
+          >
             <img
               src="/images/tech.png"
               alt="grid-2"
@@ -96,7 +109,10 @@ const About = () => {
         </div>
 
         <div className="col-span-1 xl:row-span-4">
-          <div ref={cardsref3} className="w-full h-full border glass-card border-glow hover-glow rounded-lg sm:p-7 p-4 flex flex-col gap-5">
+          <div
+            ref={cardsref3}
+            className="w-full h-full border glass-card border-glow hover-glow rounded-lg sm:p-7 p-4 flex flex-col gap-5"
+          >
             <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
               <Globe
                 height={326}
@@ -126,16 +142,19 @@ const About = () => {
                 Located in Delhi, India, and available for remote projects
                 worldwide—no boundaries, just great work.
               </p>
-              <button className="relative w-full mt-10 btn-contact py-5 rounded-3xl overflow-hidden">
+              <Link to={"/contact"}><button className="relative w-full mt-10 btn-contact py-5 rounded-3xl overflow-hidden cursor-pointer">
                 Contact Me
                 <span className="absolute inset-0 border-2 border-[#afb0b6] blur-[5px] rounded-3xl"></span>
-              </button>
+              </button></Link>
             </div>
           </div>
         </div>
 
         <div className="xl:col-span-2 xl:row-span-3">
-          <div ref={cardsref4} className="w-full h-full border glass-card border-glow hover-glow rounded-lg sm:p-7 p-4 flex flex-col gap-5">
+          <div
+            ref={cardsref4}
+            className="w-full h-full border glass-card border-glow hover-glow rounded-lg sm:p-7 p-4 flex flex-col gap-5"
+          >
             <img
               src="/images/grid3.png"
               alt="grid-3"
@@ -153,8 +172,8 @@ const About = () => {
                 technologies, pushing boundaries, and continuously enhancing my
                 skills to stay ahead in the ever-evolving tech world
               </p>
-              <a href="/MITHELESH_RESUME.pdf" download="mithelesh_resume.pdf">
-                <button className="relative w-full mt-10 btn-contact py-5 rounded-3xl overflow-hidden">
+              <a href="/public/MITHTELESH_RESUME.pdf" download="mithelesh_resume.pdf">
+                <button className="relative w-full mt-10 btn-contact py-5 rounded-3xl overflow-hidden cursor-pointer">
                   Resume
                   <span className="absolute inset-0 border-2 border-[#afb0b6] blur-[5px] rounded-3xl"></span>
                 </button>
@@ -164,7 +183,10 @@ const About = () => {
         </div>
 
         <div className="xl:col-span-1 xl:row-span-2">
-          <div ref={cardsref5} className="w-full h-full border glass-card border-glow hover-glow rounded-lg sm:p-7 p-4 flex flex-col gap-5">
+          <div
+            ref={cardsref5}
+            className="w-full h-full border glass-card border-glow hover-glow rounded-lg sm:p-7 p-4 flex flex-col gap-5"
+          >
             <img
               src="/images/grid4.png"
               alt="grid-4"
@@ -172,12 +194,16 @@ const About = () => {
             />
 
             <div className="space-y-2">
-              <p className="text-[#afb0b6] text-base font-generalsans text-center">
-                Contact me
-              </p>
+              <Link to={"/contact"} ><button
+                  
+                className="relative w-full mt-10 btn-contact py-5 rounded-3xl overflow-hidden cursor-pointer"
+              >
+                Contact Me
+                <span className="absolute inset-0 border-2 border-[#afb0b6] blur-[5px] rounded-3xl"></span>
+              </button></Link>
+
               <div
                 className="cursor-pointer flex justify-center items-center gap-2"
-                onClick={handleCopy}
               >
                 <img
                   src={hasCopied ? "/images/tick.svg" : "/images/copy.svg"}
